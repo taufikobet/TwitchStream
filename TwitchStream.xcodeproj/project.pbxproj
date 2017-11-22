@@ -12,6 +12,7 @@
 		3FD631A51FC58AD200877595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD631A31FC58AD200877595 /* Main.storyboard */; };
 		3FD631A71FC58AD200877595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD631A61FC58AD200877595 /* Assets.xcassets */; };
 		3FD631AA1FC58AD200877595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD631A81FC58AD200877595 /* LaunchScreen.storyboard */; };
+		3FD631B21FC59BF300877595 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD631B11FC59BF300877595 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3FD631A61FC58AD200877595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD631A91FC58AD200877595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD631AB1FC58AD200877595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FD631B11FC59BF300877595 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				3FD6319F1FC58AD200877595 /* AppDelegate.swift */,
 				3FD631A11FC58AD200877595 /* ViewController.swift */,
+				3FD631B11FC59BF300877595 /* Model.swift */,
 				3FD631A31FC58AD200877595 /* Main.storyboard */,
 				3FD631A61FC58AD200877595 /* Assets.xcassets */,
 				3FD631A81FC58AD200877595 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD631B21FC59BF300877595 /* Model.swift in Sources */,
 				3FD631A21FC58AD200877595 /* ViewController.swift in Sources */,
 				3FD631A01FC58AD200877595 /* AppDelegate.swift in Sources */,
 			);
