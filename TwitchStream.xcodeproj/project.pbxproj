@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		3FD631A01FC58AD200877595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6319F1FC58AD200877595 /* AppDelegate.swift */; };
 		3FD631A21FC58AD200877595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD631A11FC58AD200877595 /* ViewController.swift */; };
-		3FD631A51FC58AD200877595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD631A31FC58AD200877595 /* Main.storyboard */; };
 		3FD631A71FC58AD200877595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD631A61FC58AD200877595 /* Assets.xcassets */; };
 		3FD631AA1FC58AD200877595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD631A81FC58AD200877595 /* LaunchScreen.storyboard */; };
 		3FD631B21FC59BF300877595 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD631B11FC59BF300877595 /* Model.swift */; };
+		C40F97BC0217170407A36461 /* Pods_TwitchStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0A0E1FD66A465604ED54CF /* Pods_TwitchStream.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37B873BE2673443BAFD11780 /* Pods-TwitchStream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitchStream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitchStream/Pods-TwitchStream.debug.xcconfig"; sourceTree = "<group>"; };
 		3FD6319C1FC58AD200877595 /* TwitchStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitchStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD6319F1FC58AD200877595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD631A11FC58AD200877595 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3FD631A41FC58AD200877595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FD631A61FC58AD200877595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD631A91FC58AD200877595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD631AB1FC58AD200877595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD631B11FC59BF300877595 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7A0A0E1FD66A465604ED54CF /* Pods_TwitchStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitchStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9DE8CB08ECDD3EE3C7BA91A /* Pods-TwitchStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitchStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitchStream/Pods-TwitchStream.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40F97BC0217170407A36461 /* Pods_TwitchStream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,8 @@
 			children = (
 				3FD6319E1FC58AD200877595 /* TwitchStream */,
 				3FD6319D1FC58AD200877595 /* Products */,
+				AD7C0D44BBDA9FB4A9A97849 /* Pods */,
+				760442642BF5FF203FECE733 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +64,28 @@
 				3FD6319F1FC58AD200877595 /* AppDelegate.swift */,
 				3FD631A11FC58AD200877595 /* ViewController.swift */,
 				3FD631B11FC59BF300877595 /* Model.swift */,
-				3FD631A31FC58AD200877595 /* Main.storyboard */,
 				3FD631A61FC58AD200877595 /* Assets.xcassets */,
 				3FD631A81FC58AD200877595 /* LaunchScreen.storyboard */,
 				3FD631AB1FC58AD200877595 /* Info.plist */,
 			);
 			path = TwitchStream;
+			sourceTree = "<group>";
+		};
+		760442642BF5FF203FECE733 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A0A0E1FD66A465604ED54CF /* Pods_TwitchStream.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD7C0D44BBDA9FB4A9A97849 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37B873BE2673443BAFD11780 /* Pods-TwitchStream.debug.xcconfig */,
+				D9DE8CB08ECDD3EE3C7BA91A /* Pods-TwitchStream.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FD631AE1FC58AD200877595 /* Build configuration list for PBXNativeTarget "TwitchStream" */;
 			buildPhases = (
+				054E6C61FE2364DB5F326EB6 /* [CP] Check Pods Manifest.lock */,
 				3FD631981FC58AD200877595 /* Sources */,
 				3FD631991FC58AD200877595 /* Frameworks */,
 				3FD6319A1FC58AD200877595 /* Resources */,
+				E0B1A5259843835DC3170D44 /* [CP] Embed Pods Frameworks */,
+				562F07D79B927157732BAEE7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,11 +152,70 @@
 			files = (
 				3FD631AA1FC58AD200877595 /* LaunchScreen.storyboard in Resources */,
 				3FD631A71FC58AD200877595 /* Assets.xcassets in Resources */,
-				3FD631A51FC58AD200877595 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		054E6C61FE2364DB5F326EB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwitchStream-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		562F07D79B927157732BAEE7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitchStream/Pods-TwitchStream-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0B1A5259843835DC3170D44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TwitchStream/Pods-TwitchStream-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitchStream/Pods-TwitchStream-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3FD631981FC58AD200877595 /* Sources */ = {
@@ -148,14 +231,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3FD631A31FC58AD200877595 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3FD631A41FC58AD200877595 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3FD631A81FC58AD200877595 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -276,10 +351,11 @@
 		};
 		3FD631AF1FC58AD200877595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37B873BE2673443BAFD11780 /* Pods-TwitchStream.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6QC57ZSKE;
+				DEVELOPMENT_TEAM = 599SL32HL9;
 				INFOPLIST_FILE = TwitchStream/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.spacetimecorp.TwitchStream;
@@ -291,10 +367,11 @@
 		};
 		3FD631B01FC58AD200877595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9DE8CB08ECDD3EE3C7BA91A /* Pods-TwitchStream.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6QC57ZSKE;
+				DEVELOPMENT_TEAM = 599SL32HL9;
 				INFOPLIST_FILE = TwitchStream/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.spacetimecorp.TwitchStream;
