@@ -10,18 +10,15 @@ import UIKit
 import AsyncDisplayKit
 import SafariServices
 
-let twitchClientID = "j8zwslr2aq142h1iuzbiqi21pcv8m2"
-
 class ViewController: ASViewController<ASDisplayNode> {
     
-    var streams:[TwitchStreamsService.TwitchStream]
+    let viewModel:StreamsViewModel = StreamsViewModel()
 
     var tableNode: ASTableNode {
         return node as! ASTableNode
     }
     
     init() {
-        self.streams = []
 
         super.init(node: ASTableNode(style: .plain))
         tableNode.delegate = self
@@ -38,7 +35,6 @@ class ViewController: ASViewController<ASDisplayNode> {
         
         self.title = "Streams"
         
-        loadStreams()
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,28 +42,17 @@ class ViewController: ASViewController<ASDisplayNode> {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadStreams() {
-        let url = URL(string: "https://api.twitch.tv/kraken/streams")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("application/vnd.twitchtv.v5+json", forHTTPHeaderField: "Accept")
-        request.addValue(twitchClientID, forHTTPHeaderField: "Client-ID")
-        
-        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            if let data = data {
-                do {
-                    let streamService = try JSONDecoder().decode(TwitchStreamsService.self, from: data)
-                    DispatchQueue.main.async {
-                        self?.streams = streamService.streams
-                        self?.tableNode.reloadData()
-                    }
-                } catch let error {
-                    print(error)
-                }
-            }
+    func fetchNewBatch(context: ASBatchContext?) {
+        viewModel.loadStreams { [weak self] newStreamsCount in
+            self?.insertRows(newStreamsCount: newStreamsCount)
+            context?.completeBatchFetching(true)
         }
-        
-        task.resume()
+    }
+    
+    func insertRows(newStreamsCount: Int) {
+        let indexRange = (viewModel.streams.count - newStreamsCount..<viewModel.streams.count)
+        let indexPaths = indexRange.map { IndexPath(row: $0, section: 0) }
+        tableNode.insertRows(at: indexPaths, with: .none)
     }
 }
 
@@ -76,7 +61,7 @@ extension ViewController:ASTableDelegate {
         
         tableNode.deselectRow(at: indexPath, animated: true)
         
-        let stream = streams[indexPath.row]
+        let stream = viewModel.streams[indexPath.row]
         if let url = URL(string: stream.channel.url) {
             let safari = SFSafariViewController(url: url)
             present(safari, animated: true, completion: nil)
@@ -91,11 +76,11 @@ extension ViewController:ASTableDataSource {
     }
     
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        return streams.count
+        return viewModel.streams.count
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-        let stream = streams[indexPath.row]
+        let stream = viewModel.streams[indexPath.row]
         let nodeBlock:ASCellNodeBlock = {
             let streamCell = StreamCell(stream: stream)
             return streamCell
@@ -103,8 +88,12 @@ extension ViewController:ASTableDataSource {
         return nodeBlock
     }
     
+    func shouldBatchFetch(for tableNode: ASTableNode) -> Bool {
+        return true
+    }
+    
     func tableNode(_ tableNode: ASTableNode, willBeginBatchFetchWith context: ASBatchContext) {
-        
+        fetchNewBatch(context: context)
     }
 }
 

@@ -13,6 +13,7 @@
 		3FD631AA1FC58AD200877595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD631A81FC58AD200877595 /* LaunchScreen.storyboard */; };
 		3FD631B21FC59BF300877595 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD631B11FC59BF300877595 /* Model.swift */; };
 		3FD631B41FC6C6C200877595 /* StreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD631B31FC6C6C200877595 /* StreamCell.swift */; };
+		3FDB14591FC70A9200628427 /* StreamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB14581FC70A9200628427 /* StreamsViewModel.swift */; };
 		C40F97BC0217170407A36461 /* Pods_TwitchStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0A0E1FD66A465604ED54CF /* Pods_TwitchStream.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		3FD631AB1FC58AD200877595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD631B11FC59BF300877595 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3FD631B31FC6C6C200877595 /* StreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamCell.swift; sourceTree = "<group>"; };
+		3FDB14581FC70A9200628427 /* StreamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsViewModel.swift; sourceTree = "<group>"; };
 		7A0A0E1FD66A465604ED54CF /* Pods_TwitchStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitchStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DE8CB08ECDD3EE3C7BA91A /* Pods-TwitchStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitchStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitchStream/Pods-TwitchStream.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 			children = (
 				3FD6319F1FC58AD200877595 /* AppDelegate.swift */,
 				3FD631A11FC58AD200877595 /* ViewController.swift */,
+				3FDB14581FC70A9200628427 /* StreamsViewModel.swift */,
 				3FD631B11FC59BF300877595 /* Model.swift */,
 				3FD631B31FC6C6C200877595 /* StreamCell.swift */,
 				3FD631A61FC58AD200877595 /* Assets.xcassets */,
@@ -229,6 +232,7 @@
 				3FD631A21FC58AD200877595 /* ViewController.swift in Sources */,
 				3FD631A01FC58AD200877595 /* AppDelegate.swift in Sources */,
 				3FD631B41FC6C6C200877595 /* StreamCell.swift in Sources */,
+				3FDB14591FC70A9200628427 /* StreamsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
