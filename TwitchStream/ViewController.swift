@@ -37,33 +37,27 @@ class ViewController: ASViewController<ASDisplayNode> {
         
         self.title = "Streams"
         
-        setupTableNode()
         loadStreams()
     }
     
-    func setupTableNode() {
-        tableNode.view.allowsSelection = false
-        //tableNode.view.separatorStyle = .none
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func loadStreams() {
-        let url = URL(string: "https://api.twitch.tv/helix/streams")!
+        let url = URL(string: "https://api.twitch.tv/kraken/streams")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.addValue("application/vnd.twitchtv.v5+json", forHTTPHeaderField: "Accept")
         request.addValue(twitchClientID, forHTTPHeaderField: "Client-ID")
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
             if let data = data {
                 do {
-                    let streams = try JSONDecoder().decode(TwitchStreamsService.self, from: data)
-                    print(streams)
+                    let streamService = try JSONDecoder().decode(TwitchStreamsService.self, from: data)
                     DispatchQueue.main.async {
-                        self?.streams = streams.data
+                        self?.streams = streamService.streams
                         self?.tableNode.reloadData()
                     }
                 } catch let error {
@@ -92,9 +86,8 @@ extension ViewController:ASTableDataSource {
     
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
         let stream = streams[indexPath.row]
-        let textNode = ASTextCellNode()
-        textNode.text = stream.title
-        return textNode
+        let streamCell = StreamCell(stream: stream)
+        return streamCell
     }
 }
 
