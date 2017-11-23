@@ -19,6 +19,7 @@ struct TwitchStreamsService: Codable {
         struct TwitchChannel: Codable {
             let _id: Int
             let status: String
+            let url: String
         }
         
         struct VideoPreview: Codable {

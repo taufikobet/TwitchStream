@@ -8,6 +8,7 @@
 
 import UIKit
 import AsyncDisplayKit
+import SafariServices
 
 let twitchClientID = "j8zwslr2aq142h1iuzbiqi21pcv8m2"
 
@@ -71,7 +72,16 @@ class ViewController: ASViewController<ASDisplayNode> {
 }
 
 extension ViewController:ASTableDelegate {
-    
+    func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        
+        tableNode.deselectRow(at: indexPath, animated: true)
+        
+        let stream = streams[indexPath.row]
+        if let url = URL(string: stream.channel.url) {
+            let safari = SFSafariViewController(url: url)
+            present(safari, animated: true, completion: nil)
+        }
+    }
 }
 
 extension ViewController:ASTableDataSource {
