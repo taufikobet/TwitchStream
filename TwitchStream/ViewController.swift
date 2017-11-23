@@ -94,10 +94,17 @@ extension ViewController:ASTableDataSource {
         return streams.count
     }
     
-    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+    func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
         let stream = streams[indexPath.row]
-        let streamCell = StreamCell(stream: stream)
-        return streamCell
+        let nodeBlock:ASCellNodeBlock = {
+            let streamCell = StreamCell(stream: stream)
+            return streamCell
+        }
+        return nodeBlock
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, willBeginBatchFetchWith context: ASBatchContext) {
+        
     }
 }
 
