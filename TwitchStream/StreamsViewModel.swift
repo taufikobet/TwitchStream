@@ -12,7 +12,7 @@ import AsyncDisplayKit
 let twitchClientID = "j8zwslr2aq142h1iuzbiqi21pcv8m2"
 
 class StreamsViewModel {
-    var streams:[TwitchStreamsService.TwitchStream] = []
+    var streams:[TwitchStream] = []
     
     private var fetchInProgress:Bool = false
     

@@ -11,20 +11,39 @@ import Foundation
 struct TwitchStreamsService: Codable {
     let streams:[TwitchStream]
     
-    struct TwitchStream: Codable {
-        let _id: Int
-        let channel:TwitchChannel
-        let preview:VideoPreview
-        
-        struct TwitchChannel: Codable {
-            let _id: Int
-            let status: String
-            let url: String
-        }
-        
-        struct VideoPreview: Codable {
-            let large: String
-        }
-    }
-    
 }
+
+struct TwitchStream: Codable {
+    let id: Int
+    let channel:TwitchChannel
+    let preview:VideoPreview
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case channel
+        case preview
+    }
+}
+
+struct TwitchChannel: Codable {
+    let id: Int
+    let status: String
+    let url: URL
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case status
+        case url
+    }
+}
+
+struct VideoPreview: Codable {
+    let largeURL: URL
+    
+    enum CodingKeys: String, CodingKey {
+        case largeURL = "large"
+    }
+}
+
+
+

@@ -9,7 +9,7 @@
 import Foundation
 import AsyncDisplayKit
 
-typealias Stream = TwitchStreamsService.TwitchStream
+typealias Stream = TwitchStream
 
 let aspectRatio:CGFloat = 9.0/16.0
 let scaleFactor = UIScreen.main.scale
@@ -30,10 +30,7 @@ class StreamCell : ASCellNode {
         
         addSubnode(imageNode)
         
-        let url = stream.preview.large
-        let imageURL = URL(string:url)
-        
-        imageNode.url = imageURL
+        imageNode.url = stream.preview.largeURL
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

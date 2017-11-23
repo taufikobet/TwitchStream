@@ -62,10 +62,9 @@ extension ViewController:ASTableDelegate {
         tableNode.deselectRow(at: indexPath, animated: true)
         
         let stream = viewModel.streams[indexPath.row]
-        if let url = URL(string: stream.channel.url) {
-            let safari = SFSafariViewController(url: url)
-            present(safari, animated: true, completion: nil)
-        }
+        let safari = SFSafariViewController(url: stream.channel.url)
+        present(safari, animated: true, completion: nil)
+        
     }
 }
 
