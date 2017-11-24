@@ -40,6 +40,10 @@ class StreamCell : ASCellNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let imageRatioLayout = ASRatioLayoutSpec(ratio: aspectRatio, child: imageNode)
         let overlayLayout = ASOverlayLayoutSpec(child: imageRatioLayout, overlay: customTextNode)
-        return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [titleNode, overlayLayout])
+        return ASStackLayoutSpec(direction: .vertical,
+                                 spacing: 0,
+                                 justifyContent: .start,
+                                 alignItems: .start,
+                                 children: [overlayLayout, titleNode])
     }
 }
