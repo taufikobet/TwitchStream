@@ -18,6 +18,7 @@ class CustomTextNode: ASControlNode {
         super.init()
 
         backgroundNode.backgroundColor = UIColor.red
+        backgroundNode.cornerRadius = 4.0
         addSubnode(backgroundNode)
 
         addSubnode(liveLabelNode)
