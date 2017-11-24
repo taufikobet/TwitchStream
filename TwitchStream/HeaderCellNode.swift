@@ -1,0 +1,41 @@
+//
+//  HeaderCellNode.swift
+//  TwitchStream
+//
+//  Created by Taufik Obet on 24/11/17.
+//  Copyright © 2017 spacetimecorp. All rights reserved.
+//
+
+import Foundation
+import AsyncDisplayKit
+
+class HeaderCellNode: ASDisplayNode {
+    
+    let avatarNode = ASNetworkImageNode()
+    let displayNameNode = ASTextNode()
+    let gameLabelNode = ASTextNode()
+
+    let stream: TwitchStream
+    init(stream: TwitchStream) {
+        self.stream = stream
+        super.init()
+        
+        addSubnode(avatarNode)
+        avatarNode.url = stream.channel.avatar
+        avatarNode.style.preferredSize = CGSize(width: 50, height: 50)
+        
+        addSubnode(displayNameNode)
+        displayNameNode.attributedText = NSAttributedString(string:stream.channel.displayName, attributes:[NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18, weight: .medium)])
+        
+        addSubnode(gameLabelNode)
+        gameLabelNode.attributedText = NSAttributedString(string:stream.game, attributes:[NSAttributedStringKey.font:UIFont.systemFont(ofSize: 16, weight: .medium), NSAttributedStringKey.foregroundColor: UIColor(red:0.29, green:0.21, blue:0.48, alpha:1.0)])
+    }
+    
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        let displayNameStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [displayNameNode, gameLabelNode])
+        let headerStack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [avatarNode, displayNameStack])
+        let headerStackInset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(8, 8, 8, 8), child: headerStack)
+        
+        return headerStackInset
+    }
+}

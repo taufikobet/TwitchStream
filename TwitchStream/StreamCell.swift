@@ -21,11 +21,14 @@ class StreamCell : ASCellNode {
     
     let customTextNode = CustomTextNode()
     let viewersLabelNode = ASTextNode()
-
+    
+    let headerNode:HeaderCellNode
+    
     let stream:Stream
     init(stream:Stream) {
         self.stream = stream
-
+        self.headerNode = HeaderCellNode(stream: stream)
+        
         super.init()
         
         addSubnode(titleNode)
@@ -39,6 +42,8 @@ class StreamCell : ASCellNode {
         
         addSubnode(viewersLabelNode)
         viewersLabelNode.attributedText = NSAttributedString(string:"\(stream.viewers) viewers on \(stream.channel.displayName)", attributes:[NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+        
+        addSubnode(headerNode)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -50,6 +55,6 @@ class StreamCell : ASCellNode {
                                  spacing: 0,
                                  justifyContent: .start,
                                  alignItems: .start,
-                                 children: [overlayLayout, titleNodeInset, viewersLabelNodeInset])
+                                 children: [headerNode, overlayLayout, titleNodeInset, viewersLabelNodeInset])
     }
 }
