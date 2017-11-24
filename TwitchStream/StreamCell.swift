@@ -19,6 +19,8 @@ class StreamCell : ASCellNode {
     let titleNode = ASTextCellNode()
     let imageNode = ASNetworkImageNode()
     
+    let customTextNode = CustomTextNode()
+
     let stream:Stream
     init(stream:Stream) {
         self.stream = stream
@@ -31,10 +33,13 @@ class StreamCell : ASCellNode {
         addSubnode(imageNode)
         
         imageNode.url = stream.preview.largeURL
+        
+        addSubnode(customTextNode)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let imageRatioLayout = ASRatioLayoutSpec(ratio: aspectRatio, child: imageNode)
-        return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [titleNode, imageRatioLayout])
+        let overlayLayout = ASOverlayLayoutSpec(child: imageRatioLayout, overlay: customTextNode)
+        return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [titleNode, overlayLayout])
     }
 }
