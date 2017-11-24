@@ -20,6 +20,7 @@ class StreamCell : ASCellNode {
     let imageNode = ASNetworkImageNode()
     
     let customTextNode = CustomTextNode()
+    let viewersLabelNode = ASTextNode()
 
     let stream:Stream
     init(stream:Stream) {
@@ -35,16 +36,20 @@ class StreamCell : ASCellNode {
         imageNode.url = stream.preview.largeURL
         
         addSubnode(customTextNode)
+        
+        addSubnode(viewersLabelNode)
+        viewersLabelNode.attributedText = NSAttributedString(string:"\(stream.viewers) viewers on \(stream.channel.displayName)", attributes:[NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let imageRatioLayout = ASRatioLayoutSpec(ratio: aspectRatio, child: imageNode)
         let overlayLayout = ASOverlayLayoutSpec(child: imageRatioLayout, overlay: customTextNode)
         let titleNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(8, 8, 8, 8), child: titleNode)
+        let viewersLabelNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 8, 8, 8), child: viewersLabelNode)
         return ASStackLayoutSpec(direction: .vertical,
                                  spacing: 0,
                                  justifyContent: .start,
                                  alignItems: .start,
-                                 children: [overlayLayout, titleNodeInset])
+                                 children: [overlayLayout, titleNodeInset, viewersLabelNodeInset])
     }
 }
