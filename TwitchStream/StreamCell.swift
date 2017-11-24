@@ -16,7 +16,7 @@ let scaleFactor = UIScreen.main.scale
 
 class StreamCell : ASCellNode {
     
-    let titleNode = ASTextCellNode()
+    let titleNode = ASTextNode()
     let imageNode = ASNetworkImageNode()
     
     let customTextNode = CustomTextNode()
@@ -28,7 +28,7 @@ class StreamCell : ASCellNode {
         super.init()
         
         addSubnode(titleNode)
-        titleNode.text = stream.channel.status
+        titleNode.attributedText = NSAttributedString(string:stream.channel.status, attributes:[NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)])
         
         addSubnode(imageNode)
         
@@ -40,10 +40,11 @@ class StreamCell : ASCellNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let imageRatioLayout = ASRatioLayoutSpec(ratio: aspectRatio, child: imageNode)
         let overlayLayout = ASOverlayLayoutSpec(child: imageRatioLayout, overlay: customTextNode)
+        let titleNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(8, 8, 8, 8), child: titleNode)
         return ASStackLayoutSpec(direction: .vertical,
                                  spacing: 0,
                                  justifyContent: .start,
                                  alignItems: .start,
-                                 children: [overlayLayout, titleNode])
+                                 children: [overlayLayout, titleNodeInset])
     }
 }
