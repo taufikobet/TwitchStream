@@ -22,7 +22,12 @@ class HeaderCellNode: ASDisplayNode {
         
         addSubnode(avatarNode)
         avatarNode.url = stream.channel.avatar
-        avatarNode.style.preferredSize = CGSize(width: 50, height: 50)
+        let imageSize = CGSize(width: 50, height: 50)
+        avatarNode.style.preferredSize = imageSize
+        avatarNode.imageModificationBlock = {
+            image in
+            return image.makeCircularImage(size: imageSize)
+        }
         
         addSubnode(displayNameNode)
         displayNameNode.attributedText = NSAttributedString(string:stream.channel.displayName, attributes:[NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18, weight: .medium)])
@@ -37,5 +42,36 @@ class HeaderCellNode: ASDisplayNode {
         let headerStackInset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(8, 8, 8, 8), child: headerStack)
         
         return headerStackInset
+    }
+}
+
+private extension UIImage {
+    
+    func makeCircularImage(size: CGSize) -> UIImage {
+        // make a CGRect with the image's size
+        let circleRect = CGRect(origin: .zero, size: size)
+        
+        // begin the image context since we're not in a drawRect:
+        UIGraphicsBeginImageContextWithOptions(circleRect.size, false, 0)
+        
+        // create a UIBezierPath circle
+        let circle = UIBezierPath(roundedRect: circleRect, cornerRadius: circleRect.size.width * 0.5)
+        
+        // clip to the circle
+        circle.addClip()
+        
+        UIColor.white.set()
+        circle.fill()
+        
+        // draw the image in the circleRect *AFTER* the context is clipped
+        self.draw(in: circleRect)
+        
+        // get an image from the image context
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        // end the image context since we're not in a drawRect:
+        UIGraphicsEndImageContext()
+        
+        return roundedImage ?? self
     }
 }
